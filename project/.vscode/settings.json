@@ -1,0 +1,30 @@
+{
+  "editor.fontSize": 18, //设置字号
+  "files.autoSave": "afterDelay", //设置自动保存
+  "editor.minimap.enabled": true, //关闭小地图
+  "workbench.colorTheme": "Default Dark Modern", //设置主题
+  "window.zoomLevel": 0, //设置缩放
+  "editor.formatOnSave": true, //保存时格式化代码
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ], //启用eslint检查
+
+  "prettier.singleQuote": true, //使用单引号
+
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }, //设置svelte格式化
+
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  }, //启用emmet支持postcss
+
+  "typescript.suggest.paths": false, //typescript关闭路径提示
+  "javascript.suggest.paths": false, //javascript关闭路径提示
+
+  "path-intellisense.extensionOnImport": true //导入时显示扩展名
+}

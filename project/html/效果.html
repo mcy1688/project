@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人简历 - 张华</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .resume-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        background: white;
+      }
+
+      header {
+        background: linear-gradient(to right, #1a2a6c, #b21f1f, #2b5876);
+        color: white;
+        padding: 40px;
+        text-align: center;
+        position: relative;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        margin: 0 auto 20px;
+        object-fit: cover;
+        background: #2b5876;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 60px;
+      }
+
+      .name {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+      }
+
+      .title {
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin-bottom: 20px;
+        opacity: 0.9;
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-top: 25px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.05rem;
+      }
+
+      .contact-item i {
+        color: #ffcc70;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 40px;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.8rem;
+        color: #1a2a6c;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #ffcc70;
+      }
+
+      .section-title i {
+        background: linear-gradient(to right, #ff416c, #ff4b2b);
+        padding: 8px;
+        border-radius: 50%;
+        color: white;
+      }
+
+      .item {
+        margin-bottom: 25px;
+        padding-left: 10px;
+        border-left: 3px solid #c3cfe2;
+      }
+
+      .item-title {
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: #2b5876;
+        margin-bottom: 6px;
+      }
+
+      .item-subtitle {
+        font-size: 1.1rem;
+        color: #b21f1f;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .item-date {
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 12px;
+        font-style: italic;
+      }
+
+      .item-desc {
+        font-size: 1rem;
+        color: #444;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 15px;
+      }
+
+      .skill {
+        background: linear-gradient(to right, #2b5876, #1a2a6c);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.95rem;
+      }
+
+      .languages .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .language-bar {
+        height: 8px;
+        background: #e0e0e0;
+        border-radius: 4px;
+        flex: 1;
+        max-width: 200px;
+        margin-left: 15px;
+      }
+
+      .language-level {
+        height: 100%;
+        border-radius: 4px;
+        background: linear-gradient(to right, #ff416c, #ff4b2b);
+      }
+
+      .interests {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .interest {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80px;
+      }
+
+      .interest i {
+        font-size: 2rem;
+        color: #1a2a6c;
+        margin-bottom: 8px;
+      }
+
+      .interest span {
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      .projects {
+        display: grid;
+        gap: 20px;
+      }
+
+      .project {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #ff4b2b;
+      }
+
+      .project-title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 25px;
+        background: #f5f7fa;
+        color: #666;
+        font-size: 1rem;
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 900px) {
+        .content {
+          grid-template-columns: 1fr;
+        }
+
+        .name {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        header {
+          padding: 30px 20px;
+        }
+
+        .name {
+          font-size: 2rem;
+        }
+
+        .contact-info {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .content {
+          padding: 30px 20px;
+        }
+
+        .section-title {
+          font-size: 1.6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <header>
+        <div class="profile-img">
+          <i class="fas fa-user"></i>
+        </div>
+        <h1 class="name">张华</h1>
+        <h2 class="title">高级产品经理 & UI/UX设计师</h2>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>136-8888-6666</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>zhanghua@example.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>上海市浦东新区</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <span>linkedin.com/in/zhanghua</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="left-column">
+          <div class="section">
+            <h2 class="section-title">
+              <i class="fas fa-briefcase"></i>工作经历
+            </h2>
+
+            <div class="item">
+              <h3 class="item-title">科技未来有限公司</h3>
+              <p class="item-subtitle">高级产品经理</p>
+              <p class="item-date">2020年6月 - 至今</p>
+              <p class="item-desc">
+                负责企业级SaaS产品的全生命周期管理，主导用户增长策略，成功提升DAU
+                50%。带领10人团队完成产品从0到1的开发和市场推广。
+              </p>
+            </div>
+
+            <div class="item">
+              <h3 class="item-title">创新科技有限公司</h3>
+              <p class="item-subtitle">产品经理</p>
+              <p class="item-date">2017年8月 - 2020年5月</p>
+              <p class="item-desc">
+                负责移动端产品设计与管理，优化用户体验流程。主导产品迭代3.0版本，用户留存率提升30%，获公司年度创新奖。
+              </p>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">
+              <i class="fas fa-graduation-cap"></i>教育背景
+            </h2>
+
+            <div class="item">
+              <h3 class="item-title">北京大学</h3>
+              <p class="item-subtitle">计算机科学与技术 | 硕士</p>
+              <p class="item-date">2015年9月 - 2017年6月</p>
+              <p class="item-desc">
+                主修人机交互与用户体验设计，毕业论文《智能产品设计中的用户认知模式研究》获优秀论文奖。
+              </p>
+            </div>
+
+            <div class="item">
+              <h3 class="item-title">上海交通大学</h3>
+              <p class="item-subtitle">信息工程 | 学士</p>
+              <p class="item-date">2011年9月 - 2015年6月</p>
+              <p class="item-desc">
+                主修课程包括产品设计原理、交互设计、数据结构与算法。多次获得校级奖学金。
+              </p>
+            </div>
+          </div>
+
+          <div class="section projects">
+            <h2 class="section-title">
+              <i class="fas fa-project-diagram"></i>项目经验
+            </h2>
+
+            <div class="project">
+              <div class="project-title">
+                <strong>智能办公协同平台</strong>
+                <span class="item-date">2021-2022</span>
+              </div>
+              <p>
+                主导开发了企业协同办公平台，整合任务管理、文档协作、即时通讯等功能，服务企业客户500+
+              </p>
+            </div>
+
+            <div class="project">
+              <div class="project-title">
+                <strong>AI用户行为分析系统</strong>
+                <span class="item-date">2020-2021</span>
+              </div>
+              <p>
+                设计并落地了基于机器学习的用户行为分析平台，预测用户流失率准确率达85%
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="section">
+            <h2 class="section-title"><i class="fas fa-tools"></i>专业技能</h2>
+
+            <div class="skills">
+              <span class="skill">产品规划</span>
+              <span class="skill">用户研究</span>
+              <span class="skill">数据分析</span>
+              <span class="skill">Figma/Sketch</span>
+              <span class="skill">Axure原型设计</span>
+              <span class="skill">敏捷开发</span>
+              <span class="skill">SQL</span>
+              <span class="skill">产品路线图</span>
+              <span class="skill">A/B测试</span>
+              <span class="skill">用户旅程图</span>
+              <span class="skill">增长黑客</span>
+              <span class="skill">市场分析</span>
+            </div>
+          </div>
+
+          <div class="section languages">
+            <h2 class="section-title">
+              <i class="fas fa-language"></i>语言能力
+            </h2>
+
+            <div class="item">
+              <span>普通话 (母语)</span>
+              <div class="language-bar">
+                <div class="language-level" style="width: 100%"></div>
+              </div>
+            </div>
+
+            <div class="item">
+              <span>英语 (专业八级)</span>
+              <div class="language-bar">
+                <div class="language-level" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="item">
+              <span>日语 (N2)</span>
+              <div class="language-bar">
+                <div class="language-level" style="width: 65%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">
+              <i class="fas fa-medal"></i>证书与荣誉
+            </h2>
+
+            <div class="item">
+              <p class="item-desc">• PMP项目管理专业人士认证 (2020)</p>
+              <p class="item-desc">• 阿里云产品经理专业认证 (2019)</p>
+              <p class="item-desc">• Google UX Design专业证书 (2018)</p>
+              <p class="item-desc">• 全国大学生产品设计大赛一等奖 (2016)</p>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title"><i class="fas fa-heart"></i>兴趣爱好</h2>
+
+            <div class="interests">
+              <div class="interest">
+                <i class="fas fa-book"></i>
+                <span>阅读</span>
+              </div>
+              <div class="interest">
+                <i class="fas fa-hiking"></i>
+                <span>登山</span>
+              </div>
+              <div class="interest">
+                <i class="fas fa-music"></i>
+                <span>音乐</span>
+              </div>
+              <div class="interest">
+                <i class="fas fa-palette"></i>
+                <span>绘画</span>
+              </div>
+              <div class="interest">
+                <i class="fas fa-plane"></i>
+                <span>旅行</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>© 2023 张华 - 个人简历 | 最后更新: 2023年10月</p>
+      </footer>
+    </div>
+  </body>
+</html>
